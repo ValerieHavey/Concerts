@@ -161,6 +161,7 @@ def create_tables():
         connection.commit()
         # concerts = cursor.fetchall()
         connection.close()
+        return 'Success'
     except:
         raise
         return "Application Error", 500
