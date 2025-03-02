@@ -233,4 +233,4 @@ def update_concert(concert_id):
       return str(e), 500
 
 
-app.run(debug=True, port=5000)
+app.run(debug=True, port=os.getenv('PORT', 5000))
