@@ -17,11 +17,10 @@ cors = CORS(app, origins='*')
 # db=SQLAlchemy(app)
 
 
-
 def get_db_connection():
     connection = psycopg2.connect(
-        host='localhost',
-        database='concerttracker_db',
+        host=os.getenv('POSTGRES_HOST','localhost'),
+        database=os.getenv('POSTGRES_DATABASE','concerttracker_db'),
         user=os.environ['POSTGRES_USER'],
         password=os.environ['POSTGRES_PASSWORD'])
     return connection
