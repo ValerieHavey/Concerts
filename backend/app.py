@@ -156,8 +156,8 @@ def create_tables():
     try:
         connection = get_db_connection()
         cursor = connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-        cursor.execute('CREATE TABLE if not exists concerts (id Primary key, headliner text not null, openers text, date DateTime not null, location text not null, notes text, concert_goer integer not null)')
-        cursor.execute('CREATE TABLE if not exists users (id Primary Key, user text not null, password text not null)')
+        cursor.execute('CREATE TABLE if not exists concerts (id serial Primary key, headliner text not null, openers text, date DateTime not null, location text not null, notes text, concert_goer integer not null)')
+        cursor.execute('CREATE TABLE if not exists users (id serial Primary Key, user text not null, password text not null)')
         connection.commit()
         # concerts = cursor.fetchall()
         connection.close()
