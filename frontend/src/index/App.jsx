@@ -7,6 +7,7 @@ import Landing from "/components/Landing";
 import SignupForm from "/components/SignupForm";
 import SigninForm from "/components/SigninForm";
 import * as authService from "../services/authservice";
+import Header from "/components/Header";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <Header />
       <NavBar user={user} handleSignout={handleSignout} />
       <Routes>
         {user ? (

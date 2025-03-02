@@ -1,13 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Rocker&family=Purple+Purse&display=swap" rel="stylesheet">');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Purple Purse", system-ui, Georgia, 'Times New Roman', Times, serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: rgba(0, 0, 0, 0.87);
+  /* background-color: #1c4503;
+  background-image: url('/static/images/concert orange.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  /* font-synthesis: none; */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  /* background-image: url('/static/images/concert orange.jpg'); */
+  /* background-color: white; */
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* place-items: center; */
 }
+
+#root::after {
+  background-image: url('/static/images/concert orange.jpg');
+  opacity: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  content: '';
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+    font-family: "New Rocker", system-ui, Georgia, 'Times New Roman', Times, serif;
+    font-size: 5em;
+    text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav button {
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+}
+
+nav div {
+  display: flex;
+  gap: 10px;
+}
+
+a {
+  font-weight: 500;
+  color: #0812ca;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #0c0468;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+footer {
+  font-size: small;
+  font-weight:bold;
+  position: absolute;
+  bottom: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #1c4503;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
