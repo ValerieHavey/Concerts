@@ -3,7 +3,6 @@ import * as React from 'react';
 const Landing = () => {
     return (
       <main>
-        <h1>gigLog</h1>
         <h3>
         Log your gigs!</h3>
         <h3>
@@ -11,7 +10,7 @@ const Landing = () => {
         </h3>
         <h3>Keep Rocking On</h3>
         <footer>
-        {/* <p>photo credit</p> */}
+        <p>Image of band and audience from pexels dot com</p>
       </footer>
       </main>
     );

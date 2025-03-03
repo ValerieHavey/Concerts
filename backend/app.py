@@ -25,19 +25,6 @@ def get_db_connection():
         password=os.environ['POSTGRES_PASSWORD'])
     return connection
 
-# class Concert(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     headliner = db.Column(db.String(100), nullable=False)
-#     openers = db.Column(db.String(200), nullable=True)
-#     date = db.Column(db.DateTime, nullable=False)
-#     location = db.Column(db.String(100), nullable=False)
-#     notes = db.Column(db.String(500), nullable=True)
-
-    # def __repr__(self):
-    #     return f"Concert: {self.headliner}"
-    
-    # def __init__(self, headliner, openers, date, location, notes):
-    #     self.headliner = headliner
 
 
 # JWT Authentication
@@ -69,7 +56,6 @@ def sign_up():
     
         return jsonify({"token": token}), 201
     except Exception as err:
-        raise 
         return jsonify({"err": str(err)}), 401
     
 
@@ -87,14 +73,10 @@ def sign_in():
         password_is_valid = bcrypt.checkpw(bytes(sign_in_form_data["password"], 'utf-8'), bytes(existing_user["password"], 'utf-8'))
         if not password_is_valid:
             return jsonify({"err": "Invalid credentials."}), 401
-        # Construct the payload
         payload = {"username": existing_user["username"], "id": existing_user["id"]}
-        # Create the token, attaching the payload
         token = jwt.encode({ "payload": payload }, os.getenv('JWT_SECRET'))
-        # Send the token instead of the user
         return jsonify({"token": token}), 200
     except Exception as err:
-        raise
         return jsonify({"err": err}), 500
     finally:
         connection.close()
@@ -120,23 +102,6 @@ def users_index():
     connection.close()
     return jsonify(users), 200
 
-# Route that allows any user to view any other user's data:
-# @app.route('/users/<user_id>')
-# @token_required
-# def users_user_index(user_id):
-#     if user_id != g.user["id"]:
-#         return jsonify({"err": "Unauthorized"}), 403
-#     connection = get_db_connection()
-#     cursor = connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-#     cursor.execute("SELECT id, username FROM users WHERE id = %s;", (user_id))
-#     user = cursor.fetchone()
-#     connection.close()
-#     if user is None:
-#         return jsonify({"err": "User not found"}), 404
-#     return jsonify(user), 200
-
-    
-
 
 # CRUD Routes
 @app.route("/")
@@ -159,11 +124,9 @@ def create_tables():
         cursor.execute('CREATE TABLE if not exists concerts (id serial Primary key, headliner text not null, openers text, date Date not null, location text not null, notes text, concert_goer integer not null)')
         cursor.execute('CREATE TABLE if not exists users (id serial Primary Key, username text not null, password text not null)')
         connection.commit()
-        # concerts = cursor.fetchall()
         connection.close()
         return 'Success'
     except:
-        raise
         return "Application Error", 500
 
 @app.route('/concerts', methods= ['GET'])

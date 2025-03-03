@@ -1,4 +1,4 @@
-![Screenshot of gigLog]
+![Screenshot of gigLog](/backend/static/images/Screenshot%20of%20gigLog.png)
 
 # gigLog
 
@@ -132,7 +132,7 @@ Trello was used to complete a list of AAU, Wireframes, ERD, and Stretch Goals
 
 ### Bugs:
 
-- 
+- Notes isn't working correctly.
 
 ### Future Improvements:
 
